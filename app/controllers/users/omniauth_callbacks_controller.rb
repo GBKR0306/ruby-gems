@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     handle_auth 'Github'
   end
   
-  def github
+  def facebook
     handle_auth 'Facebook'
   end
   

@@ -9,7 +9,7 @@
 <br/>
 
 <strong>Confirmation:</strong>
-<%= user.confirmed? %>
+<%= boolean_label(user.confirmed?) %>
 <br/>
 
 <% if user.sign_in_count? %>
@@ -39,11 +39,14 @@
     <br/>
     <b><%= 'name'.humanize %>:</b>
     <%= user.name %>
-<%end%>
-
+    <br/>
+    <b><%= 'roles'.humanize %>:</b>
+    <%= user.active_roles.join(",") %>
+<% end %>
 <br/>
-<%= link_to ban_status(user), ban_user_path(user), method: :patch %>
-
-<br/>
-<%= link_to "Delete", user, method: :delete, data: {confirm: "Are you sure"} %>
+<% if current_user.admin? %>
+  <%= link_to "Edit roles", edit_user_path(user), class: "btn btn-sm btn-warning" %>
+  <%= link_to ban_status(user), ban_user_path(user), class: "btn btn-sm btn-primary", method: :patch %>
+  <%= link_to "Delete", user, method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-sm btn-danger" %>
+<% end %>
 
