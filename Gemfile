@@ -60,3 +60,7 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-facebook'
+gem 'devise_invitable', '~> 2.0.0'
+
+
+gem 'invisible_captcha'
