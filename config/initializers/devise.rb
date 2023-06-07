@@ -326,12 +326,9 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   
-  if Rails.env.development?
-    config.omniauth :github, 'b6a6eab135c2d2457e08', '14f36329dc82eaf4d0856e82204b684a795b2f60', scope: 'user'
-    
-  elsif Rails.env.production?
-    config.omniauth :github, '2049e86bcb2bbee95a0c', '23634e480cb82eb93f4ab8512a6757ef96a6bb71', scope: 'user'
-  end
+  
+  config.omniauth :github, Rails.application.credentials.dig(Rails.env.to_sym, :github, :id), Rails.application.credentials.dig(Rails.env.to_sym, :github, :secret), scope: 'user'
+
 
   
   #config.omniauth :facebook, '1631384514003647', 'fc6093659dfb9aae95fa09e8cda6ab86'
