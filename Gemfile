@@ -64,3 +64,7 @@ gem 'devise_invitable', '~> 2.0.0'
 
 
 gem 'invisible_captcha'
+
+group :production do
+  gem 'exception_notification'
+end
